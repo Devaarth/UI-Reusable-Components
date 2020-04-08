@@ -1,4 +1,6 @@
-<label class="plain-textfield">
-  <input placeholder=" " [style.width.px]="width"/>
-  <span>{{ placeHolderText }}</span>
-</label>
+<div class="input_wrap wrapper" >
+  <input type="text" class="input-container" placeholder=" " [style.width]="width" [value]=" value" (keyup)="onKeyup($event)"
+    [ngClass]="isNotValid ? 'input-container-error' : 'input-container-normal'" required />
+  <label>{{ placeHolderText }}</label>
+<div class=" tooltip" *ngIf=isNotValid>{{validationMessage}}</div>
+</div>
