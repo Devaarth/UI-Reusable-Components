@@ -1,172 +1,133 @@
-.plain-textfield {
-  --pure-material-safari-helper1: #202A34;
-  --box-border-noclick: #A5B2B6;
-  position: relative;
-  display: inline-block;
-  padding-top: 6px;
-  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
-  font-size: 16px;
-  line-height: 1.5;
-  overflow: hidden;
-}
 
-/* Input, Textarea */
-.plain-textfield > input,
-.plain-textfield > textarea {
-  box-sizing: border-box;
-  margin: 0;
-  border: solid 1px; /* Safari */
-  border-color: #A5B2B6;
-  border-top-color: transparent;
+/* Input form Style */
+
+.input-container {
   border-radius: 3px;
-  padding: 15px 13px 15px;
-  width: 100%;
-  height: 50px;
-  caret-color: #C70000;
-  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
-  background-color: transparent;
-  box-shadow: none; /* Firefox */
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
-  transition: border 0.2s, box-shadow 0.2s;
+  height: 44px;
+  color: #202B34;
+  font-size: 15px;
+  padding-left: 12px;
+  box-shadow: none;  
+
+}
+.input-container-normal {
+border: 1px solid #A5B2B6;
+}
+.input-container-error {
+  border: 1px solid #C70000;
+  }
+/* Label style after Input feild is in focus. Can also use input:focus ~ label to select sibling. */
+
+.input-container:focus + label, .input-container:valid + label{
+  font-size: 12px;
+  top: -5px;
+  left:10px;
+  background: #ffffff;
+  padding: 0px 5px 0px 5px;
+}
+.input-container-normal:focus + label, .input-container-normal:valid + label{
+  color: #A5B2B6;
+}
+.input-container-error:focus + label, .input-container-error:valid + label{
+  color: #C70000
+}
+.input_wrap {
+  width:auto; height:auto; position:relative;
 }
 
-/* Span */
-.plain-textfield > input + span,
-.plain-textfield > textarea + span {
+.input_wrap label {
+  font-family: AzoSans-Regular;
+  font-size:15px;
+  color: #A5B2B6;
+  padding: 12px;
   position: absolute;
   top: 0;
   left: 0;
-  display: flex;
-  border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-  width: 100%;
-  max-height: 100%;
-  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-  font-size: 75%;
-  line-height: 15px;
-  cursor: text;
-  transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-}
-
-/* Corners */
-.plain-textfield > input + span::before,
-.plain-textfield > input + span::after,
-.plain-textfield > textarea + span::before,
-.plain-textfield > textarea + span::after {
-  content: "";
-  display: block;
-  box-sizing: border-box;
-  margin-top: 6px;
-  border-top: solid 1px;
-  border-top-color: var(--box-border-noclick);
-  min-width: 10px;
-  height: 8px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
   pointer-events: none;
-  box-shadow: inset 0 1px transparent;
-  transition: border-color 0.2s, box-shadow 0.2s;
+
 }
 
-.plain-textfield > input + span::before,
-.plain-textfield > textarea + span::before {
-  margin-right: 4px;
-  border-left: solid 1px transparent;
-  border-radius: 3px 0;
+.input-container:focus {
+  outline:none;
 }
 
-.plain-textfield > input + span::after,
-.plain-textfield > textarea + span::after {
-  flex-grow: 1;
-  margin-left: 4px;
-  border-right: solid 1px transparent;
-  border-radius: 0 3px;
-}
-
-/* Placeholder-shown */
-.plain-textfield > input:not(:focus):placeholder-shown,
-.plain-textfield > textarea:not(:focus):placeholder-shown {
-  border-top-color: #A5B2B6;
-}
-
-.plain-textfield > input:not(:focus):placeholder-shown + span,
-.plain-textfield > textarea:not(:focus):placeholder-shown + span {
-  font-size: inherit;
-  line-height: 61px;
-}
-
-.plain-textfield > input:not(:focus):placeholder-shown + span::before,
-.plain-textfield > textarea:not(:focus):placeholder-shown + span::before,
-.plain-textfield > input:not(:focus):placeholder-shown + span::after,
-.plain-textfield > textarea:not(:focus):placeholder-shown + span::after {
-  border-top-color: transparent;
-}
-
-/* Focus */
-.plain-textfield > input:focus,
-.plain-textfield > textarea:focus {
-  border-color: transparent;
-  border-top-color: transparent;
-  box-shadow: inset 0px 0 var(--pure-material-safari-helper1), inset -1px 0 var(--pure-material-safari-helper1), inset 0 -1px var(--pure-material-safari-helper1);
-  outline: none;
-}
-
-.plain-textfield > input:focus + span,
-.plain-textfield > textarea:focus + span {
-  color: #202A34;
-}
-
-.plain-textfield > input:focus + span::before,
-.plain-textfield > input:focus + span::after,
-.plain-textfield > textarea:focus + span::before,
-.plain-textfield > textarea:focus + span::after {
-  border-top-color: #202A34;
- box-shadow: inset 0 px var(--pure-material-safari-helper1);
-}
-
-/* Disabled */
-.plain-textfield > input:disabled,
-.plain-textfield > input:disabled + span,
-.plain-textfield > textarea:disabled,
-.plain-textfield > textarea:disabled + span {
-  border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
-  border-top-color: transparent !important;
-  color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
-  pointer-events: none;
-}
-
-.plain-textfield > input:disabled + span::before,
-.plain-textfield > input:disabled + span::after,
-.plain-textfield > textarea:disabled + span::before,
-.plain-textfield > textarea:disabled + span::after {
-  border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
-}
-
-.plain-textfield > input:disabled:placeholder-shown,
-.plain-textfield > input:disabled:placeholder-shown + span,
-.plain-textfield > textarea:disabled:placeholder-shown,
-.plain-textfield > textarea:disabled:placeholder-shown + span {
-  border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
-}
-
-.plain-textfield > input:disabled:placeholder-shown + span::before,
-.plain-textfield > input:disabled:placeholder-shown + span::after,
-.plain-textfield > textarea:disabled:placeholder-shown + span::before,
-.plain-textfield > textarea:disabled:placeholder-shown + span::after {
-  border-top-color: transparent !important;
-}
-
-/* Faster transition in Safari for less noticable fractional font-size issue */
-@media not all and (min-resolution:.001dpcm) {
-  @supports (-webkit-appearance:none) {
-      .plain-textfield > input,
-      .plain-textfield > input + span,
-      .plain-textfield > textarea,
-      .plain-textfield > textarea + span,
-      .plain-textfield > input + span::before,
-      .plain-textfield > input + span::after,
-      .plain-textfield > textarea + span::before,
-      .plain-textfield > textarea + span::after {
-          transition-duration: 0.1s;
-      }
+/*  Tooltip */
+.wrapper {
+  position: relative;
   }
-}
+  
+  .wrapper > .tooltip {
+  background: #C70000;
+  top: 130%;
+  color: #fff;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0;
+  padding: 16px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1000;
+  -webkit-transform: translateY(10px);
+    -moz-transform: translateY(10px);
+    -ms-transform: translateY(10px);
+     -o-transform: translateY(10px);
+      transform: translateY(10px);
+  -webkit-transition: all .25s ease-out;
+    -moz-transition: all .25s ease-out;
+    -ms-transition: all .25s ease-out;
+     -o-transition: all .25s ease-out;
+      transition: all .25s ease-out;
+  -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+    -ms-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+     -o-box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.28);
+  }
+  
+  /* This bridges the gap so you can mouse into the tooltip without it disappearing */
+  .wrapper > .tooltip:before {
+  bottom: -20px;
+  content: " ";
+  display: block;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  }
+  
+  /* CSS Triangles - see Trevor's post */
+  .wrapper > .tooltip:after {
+  border-left: solid transparent 10px;
+  border-right: solid transparent 10px;
+  border-top: solid #C70000 10px;
+  content: " ";
+  height: 0;
+  left: 50%;
+  margin-left: -13px;
+  position: absolute;
+  width: 0;
+  top: -10px;
+  transform: rotate(180deg);
+  }
+  
+  .wrapper:hover > .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transform: translateY(0px);
+    -moz-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+     -o-transform: translateY(0px);
+      transform: translateY(0px);
+  }
+  
+
+
+
+
+
+
+
+
