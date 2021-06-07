@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -66,7 +68,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "UI-Reusable-Components:build"
+            "browserTarget": "UI-Reusable-Components:build",
+            "port": 4305
           },
           "configurations": {
             "production": {
@@ -92,6 +95,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -123,6 +128,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "UI-Reusable-Components"
+    }
+  },
+  "defaultProject": "UI-Reusable-Components",
+  "cli": {
+    "analytics": "e24cd79b-01bd-47ea-abbb-486c6def79cd"
+  }
 }
