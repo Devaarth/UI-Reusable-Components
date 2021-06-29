@@ -1,0 +1,12 @@
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+.nav-list{
+    list-style: none;
+    display: inline;
+}
+.nav-list-item{
+    padding: 5%;
+    background-color: yellow;
+}
