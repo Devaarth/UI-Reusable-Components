@@ -1,0 +1,31 @@
+.star-container {
+  display: flex;
+  gap: 8px;
+}
+
+.star {
+  cursor: pointer;
+}
+
+.star svg {
+  width: 40px;
+  /* Default: Outline state */
+  fill: transparent;
+  stroke: #bdc3c7;
+  stroke-width: 2px;
+  transition: fill 0.2s ease, transform 0.1s;
+}
+
+.star-item.filled svg {
+  fill: #FFD700; /* Bright Yellow */
+  stroke: #e6b800;
+}
+/* Filled state applied by Angular class binding */
+.star.filled svg {
+  fill: #f1c40f;
+  stroke: #f39c12;
+}
+
+.star:hover svg {
+  transform: scale(1.2);
+}
